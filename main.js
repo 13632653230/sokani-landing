@@ -1,25 +1,72 @@
-/* === I18N MODULE === */
+/* === I18N MODULE ===
+ * 支持 10 种语言，自动检测浏览器语言，用户可手动切换（记忆选择）。
+ * HTML 元素用 data-i18n="key" 标记，JS 从 TRANSLATIONS 字典查找翻译。
+ */
+const SUPPORTED_LANGS = ['en', 'zh-CN', 'zh-TW', 'ja', 'fr', 'de', 'ko', 'it', 'es', 'pt'];
+const DEFAULT_LANG = 'en';
+
 const I18n = (() => {
+  // 将浏览器语言标签映射到我们支持的语言代码
+  function resolveLang(raw) {
+    if (!raw) return DEFAULT_LANG;
+    const lower = raw.toLowerCase();
+    // 精确匹配
+    if (SUPPORTED_LANGS.includes(raw)) return raw;
+    if (SUPPORTED_LANGS.includes(lower)) return lower;
+    // 处理 zh-CN / zh-TW 的常见变体
+    if (lower === 'zh' || lower.startsWith('zh-hans') || lower === 'zh-cn' || lower === 'zh-sg') return 'zh-CN';
+    if (lower.startsWith('zh-hant') || lower === 'zh-tw' || lower === 'zh-hk' || lower === 'zh-mo') return 'zh-TW';
+    // pt-BR / pt-PT 都映射到 pt（面向巴西翻译）
+    if (lower.startsWith('pt')) return 'pt';
+    // 按主语言前缀匹配
+    const prefix = lower.split('-')[0];
+    const match = SUPPORTED_LANGS.find((code) => code.split('-')[0] === prefix);
+    return match || DEFAULT_LANG;
+  }
+
+  // 检测用户首选语言: localStorage > navigator
+  function detectLang() {
+    const saved = localStorage.getItem('sokani-lang');
+    if (saved && SUPPORTED_LANGS.includes(saved)) return saved;
+    const nav = (navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage;
+    return resolveLang(nav);
+  }
+
   function setLang(lang) {
+    if (!SUPPORTED_LANGS.includes(lang)) lang = DEFAULT_LANG;
+    const dict = TRANSLATIONS[lang] || TRANSLATIONS[DEFAULT_LANG];
     document.documentElement.lang = lang;
-    document.querySelectorAll('[data-zh]').forEach((el) => {
-      el.textContent = el.getAttribute('data-' + lang);
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      const text = dict[key];
+      if (text !== undefined) el.textContent = text;
     });
     localStorage.setItem('sokani-lang', lang);
-    // Update toggle button labels
-    document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
-      btn.dataset.active = lang === btn.dataset.langBtn ? 'true' : 'false';
+    // 更新语言切换器当前选中状态
+    const selector = document.getElementById('langSelect');
+    if (selector) selector.value = lang;
+    // 更新 <html lang> 和页面 title
+    const titleEl = document.querySelector('[data-i18n="hero.title"]');
+    if (titleEl) document.title = 'Sokani — ' + (dict['hero.title'] || '');
+  }
+
+  // 动态填充语言下拉菜单选项
+  function buildSelector() {
+    const selector = document.getElementById('langSelect');
+    if (!selector) return;
+    selector.innerHTML = '';
+    SUPPORTED_LANGS.forEach((code) => {
+      const opt = document.createElement('option');
+      opt.value = code;
+      opt.textContent = TRANSLATIONS[code]['lang.' + code] || code;
+      selector.appendChild(opt);
     });
+    selector.addEventListener('change', () => setLang(selector.value));
   }
 
   function init() {
-    const saved = localStorage.getItem('sokani-lang') || 'zh';
-    setLang(saved);
-    document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        setLang(btn.dataset.langBtn);
-      });
-    });
+    buildSelector();
+    setLang(detectLang());
   }
 
   return { init, setLang };
