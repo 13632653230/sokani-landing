@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sokani — 驾驭每一束光</title>
+  <meta name="description" content="Sokani 专业灯具控制软件。蓝牙直连，全平台覆盖，四大控光模式。">
+  <link rel="icon" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- === 01 NAV === -->
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand">◆ SOKANI</a>
+      <div class="nav-links">
+        <a href="#features" data-zh="功能" data-en="Features">功能</a>
+        <a href="#platforms" data-zh="平台" data-en="Platforms">平台</a>
+        <a href="#download" data-zh="下载" data-en="Download">下载</a>
+      </div>
+      <div class="lang-toggle">
+        <button data-lang-btn="zh" data-active="true">中</button>
+        <span class="lang-sep">/</span>
+        <button data-lang-btn="en" data-active="false">EN</button>
+      </div>
+      <button class="nav-burger" aria-label="menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- === 02 HERO === -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="beam beam-main"></div>
+      <div class="beam beam-left"></div>
+      <div class="beam beam-right"></div>
+      <div class="hero-glow"></div>
+    </div>
+    <div class="container hero-content">
+      <span class="hero-tag" data-zh="专业灯具控制 · 蓝牙直连" data-en="Pro Lighting Control · Bluetooth Direct">专业灯具控制 · 蓝牙直连</span>
+      <h1 class="hero-title" data-zh="驾驭每一束光" data-en="Command Every Beam of Light">驾驭每一束光</h1>
+      <p class="hero-subtitle" data-zh="跨平台专业灯具控制软件。精准调光，实时响应，覆盖 CCT / HSI / RGBW / FX 四大模式。" data-en="Cross-platform pro lighting software. Precision dimming, real-time response — CCT / HSI / RGBW / FX modes.">跨平台专业灯具控制软件。精准调光，实时响应，覆盖 CCT / HSI / RGBW / FX 四大模式。</p>
+      <a href="#download" class="btn-primary" data-zh="↓ 立即下载" data-en="↓ Download Now">↓ 立即下载</a>
+    </div>
+  </section>
+
+  <!-- === 03 FEATURES === -->
+  <section id="features" class="section">
+    <div class="container">
+      <p class="section-label" data-zh="核心功能" data-en="Core Features">核心功能</p>
+      <h2 class="section-title" data-zh="四大控光模式" data-en="Four Lighting Modes">四大控光模式</h2>
+      <p class="section-subtitle" data-zh="精准调控每一束光，所见即所得。" data-en="Precision control over every beam. What you see is what you get.">精准调控每一束光，所见即所得。</p>
+
+      <div class="carousel" data-carousel data-reveal>
+        <div class="carousel-track">
+
+          <!-- CCT -->
+          <div class="carousel-card" data-card="0">
+            <div class="card-visual cct-visual"></div>
+            <div class="card-info">
+              <span class="card-mode">CCT</span>
+              <h3 data-zh="色温模式" data-en="Color Temperature">色温模式</h3>
+              <p data-zh="2800K–10000K 全域色温无极调节，精准冷暖控制，搭配绿品补偿（±10）还原真实色彩。" data-en="2800K–10000K full-range color temp with precision warm/cool control and green-magenta tint (±10).">2800K–10000K 全域色温无极调节，精准冷暖控制，搭配绿品补偿（±10）还原真实色彩。</p>
+            </div>
+          </div>
+
+          <!-- HSI -->
+          <div class="carousel-card" data-card="1">
+            <div class="card-visual hsi-visual"><div class="hsi-ring"></div></div>
+            <div class="card-info">
+              <span class="card-mode">HSI</span>
+              <h3 data-zh="全彩控制" data-en="Full-Color HSI">全彩控制</h3>
+              <p data-zh="360° 色相无极调节，独立饱和度与亮度。拖动色环，实时点亮万千色彩。" data-en="360° hue with independent saturation and brightness. Drag the wheel, light up infinite colors in real time.">360° 色相无极调节，独立饱和度与亮度。拖动色环，实时点亮万千色彩。</p>
+            </div>
+          </div>
+
+          <!-- RGBW -->
+          <div class="carousel-card" data-card="2">
+            <div class="card-visual rgbw-visual"></div>
+            <div class="card-info">
+              <span class="card-mode">RGBW</span>
+              <h3 data-zh="五通道混光" data-en="RGBW 5-Channel">五通道混光</h3>
+              <p data-zh="R / G / B / C / W 五通道独立百分比控制，精准混出任何想要的色光。" data-en="R / G / B / C / W five independent channels for precise, repeatable color mixing.">R / G / B / C / W 五通道独立百分比控制，精准混出任何想要的色光。</p>
+            </div>
+          </div>
+
+          <!-- FX -->
+          <div class="carousel-card" data-card="3">
+            <div class="card-visual fx-visual"></div>
+            <div class="card-info">
+              <span class="card-mode">FX</span>
+              <h3 data-zh="场景特效" data-en="Scene Effects">场景特效</h3>
+              <p data-zh="10 种动态特效场景：闪电、警灯、火焰、烟花、RGB 循环……一键激活创意光影。" data-en="10 dynamic scene effects — lightning, police, fire, fireworks, RGB chase… one tap, instant drama.">10 种动态特效场景：闪电、警灯、火焰、烟花、RGB 循环……一键激活创意光影。</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="carousel-dots">
+          <button class="dot active" data-dot="0"></button>
+          <button class="dot" data-dot="1"></button>
+          <button class="dot" data-dot="2"></button>
+          <button class="dot" data-dot="3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === 04 SCENE === -->
+  <section id="scene" class="section scene-section">
+    <div class="container">
+      <p class="section-label" data-zh="实时演示" data-en="Live Demo">实时演示</p>
+      <h2 class="section-title" data-zh="所见即所得" data-en="What You See Is What You Get">所见即所得</h2>
+      <p class="section-subtitle" data-zh="拖动色环，感受毫秒级响应的调光体验。" data-en="Drag the hue ring. Feel millisecond-precise lighting response.">拖动色环，感受毫秒级响应的调光体验。</p>
+
+      <div class="demo-stage glass" data-reveal>
+        <div class="demo-lamp" id="demoLamp"></div>
+        <div class="demo-controls">
+          <label class="demo-label" data-zh="色相" data-en="Hue">色相</label>
+          <input type="range" id="hueSlider" min="0" max="360" value="180" class="hue-slider">
+          <label class="demo-label" data-zh="亮度" data-en="Brightness">亮度</label>
+          <input type="range" id="brightSlider" min="20" max="100" value="80" class="bright-slider">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === 05 PLATFORMS === -->
+  <section id="platforms" class="section">
+    <div class="container">
+      <p class="section-label" data-zh="全平台覆盖" data-en="All Platforms">全平台覆盖</p>
+      <h2 class="section-title" data-zh="一套控制，三端同步" data-en="One Control, Three Platforms">一套控制，三端同步</h2>
+      <p class="section-subtitle" data-zh="桌面、手机、平板，随时随地掌控你的灯光。" data-en="Desktop, phone, tablet — control your lights anywhere, anytime.">桌面、手机、平板，随时随地掌控你的灯光。</p>
+
+      <div class="platform-grid" data-reveal>
+        <div class="platform-card glass">
+          <div class="device-icon desktop-icon"></div>
+          <h3 data-zh="桌面端" data-en="Desktop">桌面端</h3>
+          <p data-zh="Sokani Studio · macOS / Windows" data-en="Sokani Studio · macOS / Windows">Sokani Studio · macOS / Windows</p>
+        </div>
+        <div class="platform-card glass">
+          <div class="device-icon phone-icon ios">
+            <span class="ios-badge">iOS</span>
+          </div>
+          <h3 data-zh="iOS" data-en="iOS">iOS</h3>
+          <p data-zh="iPhone · iPad" data-en="iPhone · iPad">iPhone · iPad</p>
+        </div>
+        <div class="platform-card glass">
+          <div class="device-icon phone-icon android">
+            <span class="android-badge">∀</span>
+          </div>
+          <h3 data-zh="Android" data-en="Android">Android</h3>
+          <p data-zh="手机 · 平板" data-en="Phone · Tablet">手机 · 平板</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === 06 DOWNLOAD === -->
+  <section id="download" class="section download-section">
+    <div class="container">
+      <p class="section-label" data-zh="立即下载" data-en="Get It Now">立即下载</p>
+      <h2 class="section-title" data-zh="开启你的光影创作" data-en="Start Creating with Light">开启你的光影创作</h2>
+      <p class="section-subtitle" data-zh="选择你的平台，即刻体验。" data-en="Choose your platform. Start in seconds.">选择你的平台，即刻体验。</p>
+
+      <div class="download-grid" data-reveal>
+        <!-- TODO: replace href="#" with real .dmg URL -->
+        <a href="#" class="download-card glass" data-platform="mac">
+          <div class="dl-icon dl-desktop"></div>
+          <div class="dl-text">
+            <span class="dl-name">macOS</span>
+            <span class="dl-meta">.dmg · v0.1.0</span>
+          </div>
+        </a>
+        <!-- TODO: replace href="#" with real .exe URL -->
+        <a href="#" class="download-card glass" data-platform="win">
+          <div class="dl-icon dl-desktop"></div>
+          <div class="dl-text">
+            <span class="dl-name">Windows</span>
+            <span class="dl-meta">.exe · v0.1.0</span>
+          </div>
+        </a>
+        <!-- TODO: replace href="#" with real App Store URL -->
+        <a href="#" class="download-card glass" data-platform="ios">
+          <div class="dl-icon dl-store"></div>
+          <div class="dl-text">
+            <span class="dl-name" data-zh="App Store" data-en="App Store">App Store</span>
+            <span class="dl-meta" data-zh="iOS 下载" data-en="iOS Download">iOS 下载</span>
+          </div>
+        </a>
+        <!-- TODO: replace href="#" with real Google Play URL -->
+        <a href="#" class="download-card glass" data-platform="android">
+          <div class="dl-icon dl-store"></div>
+          <div class="dl-text">
+            <span class="dl-name">Google Play</span>
+            <span class="dl-meta" data-zh="Android 下载" data-en="Android Download">Android 下载</span>
+          </div>
+        </a>
+      </div>
+      <p class="download-hint" data-zh="已自动识别你的设备并高亮推荐" data-en="Your device is auto-detected and highlighted">已自动识别你的设备并高亮推荐</p>
+    </div>
+  </section>
+
+  <!-- === 07 FOOTER === -->
+  <footer id="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand">◆ SOKANI</span>
+        <p data-zh="专业灯具控制，驾驭每一束光。" data-en="Pro lighting control. Command every beam of light.">专业灯具控制，驾驭每一束光。</p>
+      </div>
+      <nav class="footer-links">
+        <a href="#" data-zh="关于" data-en="About">关于</a>
+        <a href="#" data-zh="支持" data-en="Support">支持</a>
+        <a href="#" data-zh="隐私政策" data-en="Privacy">隐私政策</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Sokani. <span data-zh="保留所有权利。" data-en="All rights reserved.">保留所有权利。</span></p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
